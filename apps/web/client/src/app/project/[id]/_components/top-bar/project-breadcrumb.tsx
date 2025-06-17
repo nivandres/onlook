@@ -1,6 +1,5 @@
 import { useEditorEngine } from '@/components/store/editor';
 import { useProjectManager } from '@/components/store/project';
-import { transKeys } from '@/i18n/keys';
 import { sendAnalytics } from '@/utils/analytics';
 import { Routes } from '@/utils/constants';
 import { uploadBlobToStorage } from '@/utils/supabase/client';
@@ -18,7 +17,7 @@ import { toast } from '@onlook/ui/sonner';
 import { cn } from '@onlook/ui/utils';
 import { base64ToBlob, getScreenshotPath } from '@onlook/utility';
 import { observer } from 'mobx-react-lite';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import { redirect, useRouter } from 'next/navigation';
 import { useRef, useState } from 'react';
 
@@ -102,13 +101,13 @@ export const ProjectBreadcrumb = observer(() => {
                     method: 'codesandbox_download_url'
                 });
 
-                toast.success(t(transKeys.projects.actions.downloadSuccess));
+                toast.success(t.projects.actions.downloadSuccess.raw);
             } else {
                 throw new Error('Failed to generate download URL');
             }
         } catch (error) {
             console.error('Download failed:', error);
-            toast.error(t(transKeys.projects.actions.downloadError), {
+            toast.error(t.projects.actions.downloadError.raw, {
                 description: error instanceof Error ? error.message : 'Unknown error'
             });
 
@@ -175,14 +174,14 @@ export const ProjectBreadcrumb = observer(() => {
                     <DropdownMenuItem onClick={() => handleNavigateToProjects()}>
                         <div className="flex row center items-center group">
                             <Icons.Tokens className="mr-2 group-hover:rotate-12 transition-transform" />
-                            {t(transKeys.projects.actions.goToAllProjects)}
+                            {t.projects.actions.goToAllProjects}
                         </div>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={() => router.push(Routes.HOME)}>
                         <div className="flex row center items-center group">
                             <Icons.Plus className="mr-2 group-hover:rotate-12 transition-transform" />
-                            {t(transKeys.projects.actions.newProject)}
+                            {t.projects.actions.newProject}
                         </div>
                     </DropdownMenuItem>
 
@@ -192,7 +191,7 @@ export const ProjectBreadcrumb = observer(() => {
                     >
                         <div className="flex row center items-center group">
                             <Icons.Download className="mr-2 group-hover:scale-110 transition-transform" />
-                            {isDownloading ? t(transKeys.projects.actions.downloadingCode) : t(transKeys.projects.actions.downloadCode)}
+                            {isDownloading ? t.projects.actions.downloadingCode : t.projects.actions.downloadCode}
                         </div>
                     </DropdownMenuItem>
                 </DropdownMenuContent>

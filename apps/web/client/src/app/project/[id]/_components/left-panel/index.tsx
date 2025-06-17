@@ -1,10 +1,10 @@
 import { useEditorEngine } from '@/components/store/editor';
-import { transKeys } from '@/i18n/keys';
 import { EditorMode, LeftPanelTabValue } from '@onlook/models';
 import { Icons } from '@onlook/ui/icons';
 import { cn } from '@onlook/ui/utils';
 import { observer } from 'mobx-react-lite';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
+import type { TranslationKeys } from 'intl-t/types';
 import { BrandTab } from './brand-tab';
 import { HelpDropdown } from './help-dropdown';
 import { ImagesTab } from './image-tab';
@@ -13,47 +13,47 @@ import { PagesTab } from './page-tab';
 import { WindowsTab } from './windows-tab';
 import { ZoomControls } from './zoom-controls';
 
-const tabs: { value: LeftPanelTabValue; icon: React.ReactNode; label: string; disabled?: boolean }[] =
+const tabs: { value: LeftPanelTabValue; icon: React.ReactNode; label: TranslationKeys<typeof useTranslations>; disabled?: boolean }[] =
     [
 
         {
             value: LeftPanelTabValue.BRAND,
             icon: <Icons.Brand className="w-5 h-5" />,
-            label: transKeys.editor.panels.layers.tabs.brand,
+            label: 'editor.panels.layers.tabs.brand',
         },
         {
             value: LeftPanelTabValue.PAGES,
             icon: <Icons.File className="w-5 h-5" />,
-            label: transKeys.editor.panels.layers.tabs.pages,
+            label: 'editor.panels.layers.tabs.pages',
         },
         {
             value: LeftPanelTabValue.WINDOWS,
             icon: <Icons.Desktop className="w-5 h-5" />,
-            label: transKeys.editor.panels.layers.tabs.windows.name,
+            label: 'editor.panels.layers.tabs.windows.name',
         },
         {
             value: LeftPanelTabValue.LAYERS,
             icon: <Icons.Layers className="w-5 h-5" />,
-            label: transKeys.editor.panels.layers.tabs.layers,
+            label: 'editor.panels.layers.tabs.layers',
             disabled: true,
         },
 
         {
             value: LeftPanelTabValue.IMAGES,
             icon: <Icons.Image className="w-5 h-5" />,
-            label: transKeys.editor.panels.layers.tabs.images,
+            label: 'editor.panels.layers.tabs.images',
             disabled: true,
         },
         {
             value: LeftPanelTabValue.APPS,
             icon: <Icons.ViewGrid className="w-5 h-5" />,
-            label: transKeys.editor.panels.layers.tabs.apps,
+            label: 'editor.panels.layers.tabs.apps',
             disabled: true,
         },
         {
             value: LeftPanelTabValue.COMPONENTS,
             icon: <Icons.Component className="w-5 h-5" />,
-            label: transKeys.editor.panels.layers.tabs.components,
+            label: 'editor.panels.layers.tabs.components',
             disabled: true,
         },
     ];

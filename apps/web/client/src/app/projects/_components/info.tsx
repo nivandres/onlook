@@ -2,7 +2,7 @@ import type { Project } from '@onlook/models';
 import { timeAgo } from '@onlook/utility';
 import { observer } from 'mobx-react-lite';
 import { AnimatePresence, motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import { useState } from 'react';
 import { EditAppButton } from './edit-app';
 import { Settings } from './settings';

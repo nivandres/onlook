@@ -1,4 +1,3 @@
-import { transKeys } from '@/i18n/keys';
 import { sendAnalytics } from '@/utils/analytics';
 import { Routes } from '@/utils/constants';
 import type { Project } from '@onlook/models';
@@ -6,7 +5,7 @@ import { Button } from '@onlook/ui/button';
 import { Icons } from '@onlook/ui/icons';
 import { observer } from 'mobx-react-lite';
 import { motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import { redirect } from 'next/navigation';
 import type { ComponentProps } from 'react';
 
@@ -33,7 +32,7 @@ export const EditAppButton = observer(({ project, ...props }: EditAppButtonProps
             {...props}
         >
             <Icons.PencilPaper />
-            <p>{t(transKeys.projects.actions.editApp)}</p>
+            <p>{t.projects.actions.editApp}</p>
         </ButtonMotion>
     );
 });

@@ -1,14 +1,13 @@
 'use client';
 
 import { useEditorEngine } from '@/components/store/editor';
-import { transKeys } from '@/i18n/keys';
 import { EditorMode, EditorTabValue } from '@onlook/models';
 import { Icons } from '@onlook/ui/icons';
 import { ResizablePanel } from '@onlook/ui/resizable';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@onlook/ui/tabs';
 import { cn } from '@onlook/ui/utils';
 import { observer } from 'mobx-react-lite';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import { useState } from 'react';
 import { ChatTab } from './chat-tab';
 import { ChatControls } from './chat-tab/controls';
@@ -56,7 +55,7 @@ export const RightPanel = observer(() => {
                                     value={EditorTabValue.CHAT}
                                 >
                                     <Icons.Sparkles className="mr-0.5 mb-0.5 h-4 w-4" />
-                                    {t(transKeys.editor.panels.edit.tabs.chat.name)}
+                                    {t.editor.panels.edit.tabs.chat.name}
                                     <Icons.ChevronDown className="ml-0.5 h-3 w-3 text-muted-foreground" />
                                 </TabsTrigger>
                             </ChatPanelDropdown>

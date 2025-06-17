@@ -1,9 +1,11 @@
 import { updateSession } from '@/utils/supabase/middleware';
-import { type NextRequest } from 'next/server';
+import type { NextFetchEvent, NextRequest } from 'next/server';
+import { middleware as i18nMiddleware } from './i18n/navigation';
 
-export async function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest, event: NextFetchEvent) {
     // update user's auth session
-    return await updateSession(request);
+    const response = await updateSession(request);
+    return i18nMiddleware(request, event, response);
 }
 
 export const config = {

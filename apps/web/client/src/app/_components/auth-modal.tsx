@@ -1,4 +1,3 @@
-import { transKeys } from '@/i18n/keys';
 import {
     AlertDialog,
     AlertDialogContent,
@@ -8,7 +7,7 @@ import {
     AlertDialogTitle,
 } from '@onlook/ui/alert-dialog';
 import { Button } from '@onlook/ui/button';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import { useAuthContext } from '../auth/auth-context';
 import { GithubLoginButton, GoogleLoginButton } from './login-button';
 
@@ -20,10 +19,10 @@ export function AuthModal() {
             <AlertDialogContent className="!max-w-sm bg-black">
                 <AlertDialogHeader>
                     <AlertDialogTitle className="text-center text-xl font-normal">
-                        {t(transKeys.welcome.login.loginToEdit)}
+                        {t.welcome.login.loginToEdit}
                     </AlertDialogTitle>
                     <AlertDialogDescription className="text-center">
-                        {t(transKeys.welcome.login.shareProjects)}
+                        {t.welcome.login.shareProjects}
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <div className="space-y-2 flex flex-col">
@@ -32,7 +31,7 @@ export function AuthModal() {
                 </div>
                 <AlertDialogFooter className="flex !justify-center w-full">
                     <Button variant={'ghost'} onClick={() => setIsAuthModalOpen(false)}>
-                        {t(transKeys.projects.actions.close)}
+                        {t.projects.actions.close}
                     </Button>
                 </AlertDialogFooter>
             </AlertDialogContent>

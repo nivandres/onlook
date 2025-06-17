@@ -2,13 +2,12 @@ import { useChatContext } from '@/app/project/[id]/_hooks/use-chat';
 import { useEditorEngine } from '@/components/store/editor';
 import type { AssistantChatMessageImpl } from '@/components/store/editor/chat/message/assistant';
 import type { UserChatMessageImpl } from '@/components/store/editor/chat/message/user';
-import { transKeys } from '@/i18n/keys';
 import { ChatMessageRole } from '@onlook/models/chat';
 import { ChatMessageList } from '@onlook/ui/chat/chat-message-list';
 import { Icons } from '@onlook/ui/icons/index';
 import { assertNever } from '@onlook/utility';
 import { observer } from 'mobx-react-lite';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import { AssistantMessage } from './assistant-message';
 import { ErrorMessage } from './error-message';
 import { StreamMessage } from './stream-message';
@@ -51,7 +50,7 @@ export const ChatMessages = observer(() => {
                 <div className="flex-1 flex flex-col items-center justify-center text-foreground-tertiary/80 h-full">
                     <Icons.EmptyState className="size-32" />
                     <p className="text-center text-regularPlus text-balance max-w-[300px]">
-                        {t(transKeys.editor.panels.edit.tabs.chat.emptyState)}
+                        {t.editor.panels.edit.tabs.chat.emptyState}
                     </p>
                 </div>
             )

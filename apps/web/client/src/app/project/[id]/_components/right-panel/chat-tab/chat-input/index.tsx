@@ -2,7 +2,6 @@ import { ChatType } from '@/app/api/chat/route';
 import { useChatContext } from '@/app/project/[id]/_hooks/use-chat';
 import { useEditorEngine } from '@/components/store/editor';
 import { FOCUS_CHAT_INPUT_EVENT } from '@/components/store/editor/chat';
-import { transKeys } from '@/i18n/keys';
 import { EditorTabValue, type ImageMessageContext } from '@onlook/models';
 import { MessageContextType } from '@onlook/models/chat';
 import { Button } from '@onlook/ui/button';
@@ -13,7 +12,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@onlook/ui/tooltip';
 import { cn } from '@onlook/ui/utils';
 import { compressImage } from '@onlook/utility';
 import { observer } from 'mobx-react-lite';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import { useEffect, useRef, useState } from 'react';
 import { InputContextPills } from '../context-pills/input-context-pills';
 import { type SuggestionsRef } from '../suggestions';
@@ -261,8 +260,8 @@ export const ChatInput = observer(() => {
                     disabled={disabled}
                     placeholder={
                         disabled
-                            ? t(transKeys.editor.panels.edit.tabs.chat.emptyState)
-                            : t(transKeys.editor.panels.edit.tabs.chat.input.placeholder)
+                            ? t.editor.panels.edit.tabs.chat.emptyState.raw
+                            : t.editor.panels.edit.tabs.chat.input.placeholder.raw
                     }
                     className={cn(
                         'bg-transparent dark:bg-transparent mt-2 overflow-auto max-h-32 text-small p-0 border-0 focus-visible:ring-0 shadow-none rounded-none caret-[#FA003C] resize-none',

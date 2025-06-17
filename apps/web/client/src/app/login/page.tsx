@@ -1,11 +1,10 @@
 'use client';
 
 import { Dunes } from '@/components/ui/dunes';
-import { transKeys } from '@/i18n/keys';
 import { Routes } from '@/utils/constants';
 import { Button } from '@onlook/ui/button';
 import { Icons } from '@onlook/ui/icons';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import Link from 'next/link';
 import { GithubLoginButton, GoogleLoginButton } from '../_components/login-button';
 import { useAuthContext } from '../auth/auth-context';
@@ -29,10 +28,10 @@ export default function LoginPage() {
                     </div>
                     <div className="space-y-4">
                         <h1 className="text-title1 leading-tight">
-                            {t(transKeys.welcome.title)}
+                            {t.welcome.title}
                         </h1>
                         <p className="text-foreground-onlook text-regular">
-                            {t(transKeys.welcome.description)}
+                            {t.welcome.description}
                         </p>
                     </div>
                     <div className="space-x-2 flex flex-row">
@@ -45,28 +44,28 @@ export default function LoginPage() {
                         </Button>
                     )}
                     <p className="text-small text-foreground-onlook">
-                        {t(transKeys.welcome.terms.agreement)}{' '}
+                        {t.welcome.terms.agreement}{' '}
                         <button
                             onClick={() =>
                                 window.open('https://onlook.com/privacy-policy', '_blank')
                             }
                             className="text-gray-300 hover:text-gray-50 underline transition-colors duration-200"
                         >
-                            {t(transKeys.welcome.terms.privacy)}
+                            {t.welcome.terms.privacy}
                         </button>{' '}
-                        {t(transKeys.welcome.terms.and)}{' '}
+                        {t.welcome.terms.and}{' '}
                         <button
                             onClick={() =>
                                 window.open('https://onlook.com/terms-of-service', '_blank')
                             }
                             className="text-gray-300 hover:text-gray-50 underline transition-colors duration-200"
                         >
-                            {t(transKeys.welcome.terms.tos)}
+                            {t.welcome.terms.tos}
                         </button>
                     </p>
                 </div>
                 <div className="flex flex-row space-x-1 text-small text-gray-600">
-                    <p>{t(transKeys.welcome.version, { version: '1.0.0' })}</p>
+                    <p>{t.welcome.version({ version: '1.0.0' })}</p>
                 </div>
             </div>
             <Dunes />

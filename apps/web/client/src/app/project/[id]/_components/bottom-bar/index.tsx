@@ -2,7 +2,6 @@
 
 import { Hotkey } from '@/components/hotkey';
 import { useEditorEngine } from '@/components/store/editor';
-import { transKeys } from '@/i18n/keys';
 import { EditorMode } from '@onlook/models';
 import { HotkeyLabel } from '@onlook/ui/hotkey-label';
 import { Icons } from '@onlook/ui/icons';
@@ -10,7 +9,7 @@ import { ToggleGroup, ToggleGroupItem } from '@onlook/ui/toggle-group';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@onlook/ui/tooltip';
 import { observer } from 'mobx-react-lite';
 import { AnimatePresence, motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import { TerminalArea } from './terminal-area';
 
 const TOOLBAR_ITEMS = ({ t }: { t: ReturnType<typeof useTranslations> }) => [
@@ -20,8 +19,8 @@ const TOOLBAR_ITEMS = ({ t }: { t: ReturnType<typeof useTranslations> }) => [
         hotkey: Hotkey.SELECT,
         disabled: false,
         draggable: false,
-        label: t(transKeys.editor.toolbar.tools.select.name),
-        tooltip: t(transKeys.editor.toolbar.tools.select.tooltip),
+        label: t.editor.toolbar.tools.select.name,
+        tooltip: t.editor.toolbar.tools.select.tooltip,
     },
     {
         mode: EditorMode.PAN,
@@ -29,8 +28,8 @@ const TOOLBAR_ITEMS = ({ t }: { t: ReturnType<typeof useTranslations> }) => [
         hotkey: Hotkey.PAN,
         disabled: false,
         draggable: false,
-        label: t(transKeys.editor.toolbar.tools.pan.name),
-        tooltip: t(transKeys.editor.toolbar.tools.pan.tooltip),
+        label: t.editor.toolbar.tools.pan.name,
+        tooltip: t.editor.toolbar.tools.pan.tooltip,
     },
     {
         mode: EditorMode.INSERT_DIV,
@@ -38,8 +37,8 @@ const TOOLBAR_ITEMS = ({ t }: { t: ReturnType<typeof useTranslations> }) => [
         hotkey: Hotkey.INSERT_DIV,
         disabled: false,
         draggable: true,
-        label: t(transKeys.editor.toolbar.tools.insertDiv.name),
-        tooltip: t(transKeys.editor.toolbar.tools.insertDiv.tooltip),
+        label: t.editor.toolbar.tools.insertDiv.name,
+        tooltip: t.editor.toolbar.tools.insertDiv.tooltip,
     },
     {
         mode: EditorMode.INSERT_TEXT,
@@ -47,8 +46,8 @@ const TOOLBAR_ITEMS = ({ t }: { t: ReturnType<typeof useTranslations> }) => [
         hotkey: Hotkey.INSERT_TEXT,
         disabled: false,
         draggable: true,
-        label: t(transKeys.editor.toolbar.tools.insertText.name),
-        tooltip: t(transKeys.editor.toolbar.tools.insertText.tooltip),
+        label: t.editor.toolbar.tools.insertText.name,
+        tooltip: t.editor.toolbar.tools.insertText.tooltip,
     },
 ];
 

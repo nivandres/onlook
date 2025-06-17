@@ -3,7 +3,7 @@
  * for Docker builds.
  */
 import { NextConfig } from 'next';
-import createNextIntlPlugin from 'next-intl/plugin';
+import { generateDeclarations } from 'intl-t/declarations';
 import path from 'node:path';
 import './src/env';
 
@@ -22,9 +22,6 @@ if (process.env.NODE_ENV === 'development') {
     nextConfig.outputFileTracingRoot = path.join(__dirname, '../../..');
 }
 
-const withNextIntl = createNextIntlPlugin({
-    experimental: {
-        createMessagesDeclaration: './messages/en.json'
-    }
-});
-export default withNextIntl(nextConfig);
+generateDeclarations('messages');
+
+export default nextConfig;

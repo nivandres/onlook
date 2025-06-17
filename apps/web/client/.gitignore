@@ -44,3 +44,6 @@ yarn-error.log*
 
 # idea files
 .idea
+
+# i18n
+/messages/*.d.json.ts

@@ -1,6 +1,5 @@
 import { Hotkey } from '@/components/hotkey';
 import { useEditorEngine } from '@/components/store/editor';
-import { transKeys } from '@/i18n/keys';
 import { EditorMode } from '@onlook/models';
 import { HotkeyLabel } from '@onlook/ui/hotkey-label';
 import { ToggleGroup, ToggleGroupItem } from '@onlook/ui/toggle-group';
@@ -8,7 +7,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@onlook/ui/tooltip';
 import { cn } from '@onlook/ui/utils';
 import { observer } from 'mobx-react-lite';
 import { motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 
 const MODE_TOGGLE_ITEMS: {
     mode: EditorMode;
@@ -60,7 +59,7 @@ export const ModeToggle = observer(() => {
                                         : 'text-foreground-secondary text-sm hover:text-foreground-hover hover:bg-transparent',
                                 )}
                             >
-                                {t(transKeys.editor.modes[item.mode.toLowerCase() as keyof typeof transKeys.editor.modes].name)}
+                                {t.editor.modes[item.mode.toLowerCase() as 'design' | 'preview'].name}
                             </ToggleGroupItem>
                         </TooltipTrigger>
                         <TooltipContent side="bottom">

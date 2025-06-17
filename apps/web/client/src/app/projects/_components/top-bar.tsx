@@ -1,5 +1,4 @@
 import { CurrentUserAvatar } from '@/components/ui/avatar-dropdown';
-import { transKeys } from '@/i18n/keys';
 import { Routes } from '@/utils/constants';
 import { Button } from '@onlook/ui/button';
 import {
@@ -10,7 +9,7 @@ import {
 } from '@onlook/ui/dropdown-menu';
 import { Icons } from '@onlook/ui/icons';
 import { cn } from '@onlook/ui/utils';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -47,7 +46,7 @@ export const TopBar = () => {
                             }}
                         >
                             <Icons.Plus className="w-4 h-4 mr-2" />
-                            {t(transKeys.projects.actions.newProject)}
+                            {t.projects.actions.newProject}
                         </DropdownMenuItem>
                         <DropdownMenuItem
                             className={cn(

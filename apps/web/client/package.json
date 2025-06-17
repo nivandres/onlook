@@ -68,6 +68,7 @@
         "embla-carousel-react": "^8.6.0",
         "flexsearch": "^0.8.160",
         "freestyle-sandboxes": "^0.0.78",
+        "intl-t": "^1.0.0-rc",
         "localforage": "^1.10.0",
         "lucide-react": "^0.486.0",
         "mobx-react-lite": "^4.1.0",

@@ -6,8 +6,8 @@ import { FeatureFlagsProvider } from '@/hooks/use-feature-flags';
 import { TRPCReactProvider } from '@/trpc/react';
 import { Toaster } from '@onlook/ui/sonner';
 import { type Metadata } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
+import { Translation } from '@/i18n/translation';
+import { getLocale } from 'intl-t/next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from './_components/theme';
 import { AuthProvider } from './auth/auth-context';
@@ -62,10 +62,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                         >
                             <TRPCReactProvider>
                                 <AuthProvider>
-                                    <NextIntlClientProvider>
+                                    <Translation>
                                         {children}
                                         <Toaster />
-                                    </NextIntlClientProvider>
+                                    </Translation>
                                 </AuthProvider>
                             </TRPCReactProvider>
                         </ThemeProvider>

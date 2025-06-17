@@ -1,9 +1,8 @@
-import { transKeys } from '@/i18n/keys';
 import { SignInMethod } from '@onlook/models/auth';
 import { Button } from '@onlook/ui/button';
 import { Icons } from '@onlook/ui/icons/index';
 import { cn } from '@onlook/ui/utils';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import { useAuthContext } from '../auth/auth-context';
 
 export const GithubLoginButton = ({
@@ -28,10 +27,10 @@ export const GithubLoginButton = ({
                 ) : (
                     <Icons.GitHubLogo className="w-4 h-4 mr-2" />
                 )}
-                {t(transKeys.welcome.login.github)}
+                {t.welcome.login.github}
             </Button>
             {isLastSignInMethod && (
-                <p className="text-teal-500 text-small mt-1">{t(transKeys.welcome.login.lastUsed)}</p>
+                <p className="text-teal-500 text-small mt-1">{t.welcome.login.lastUsed}</p>
             )}
         </div>
     );
@@ -59,10 +58,10 @@ export const GoogleLoginButton = ({
                 ) : (
                     <Icons.GoogleLogo viewBox="0 0 24 24" className="w-4 h-4 mr-2" />
                 )}
-                {t(transKeys.welcome.login.google)}
+                {t.welcome.login.google}
             </Button>
             {isLastSignInMethod && (
-                <p className="text-teal-500 text-small mt-1">{t(transKeys.welcome.login.lastUsed)}</p>
+                <p className="text-teal-500 text-small mt-1">{t.welcome.login.lastUsed}</p>
             )}
         </div>
     );

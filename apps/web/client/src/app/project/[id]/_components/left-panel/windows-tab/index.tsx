@@ -1,10 +1,9 @@
 import { useEditorEngine } from '@/components/store/editor';
-import { transKeys } from '@/i18n/keys';
 import { Button } from '@onlook/ui/button';
 import { Icons } from '@onlook/ui/icons';
 import { Separator } from '@onlook/ui/separator';
 import { observer } from 'mobx-react-lite';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/translation';
 import { DeviceSettings } from './device-settings';
 import { FrameDimensions } from './frame-dimensions';
 
@@ -18,7 +17,7 @@ export const WindowsTab = observer(() => {
         <p
             className={`${WIDTH} h-full flex items-center justify-center p-2 text-center text-sm text-foreground-secondary`}
         >
-            {t(transKeys.editor.panels.layers.tabs.windows.emptyState)}
+            {t.editor.panels.layers.tabs.windows.emptyState}
         </p>
     );
 
